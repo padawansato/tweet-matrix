@@ -11,7 +11,7 @@ cmatrixの文字列のラインでtwitterのタイムラインを表示します
 <!-- > "The image translators work for the constract program."    -->
 <!-- > "But there's way too much infomation to decode The Matrix."   -->
 <!-- > "You get used to it."   -->
-> _"I don't even see the code."_  
-> _"All I see is blonde, brunette, redhead."_  
->                    _The Matrix (1999)_  
+> *"I don't even see the code."*  
+> *"All I see is blonde, brunette, redhead."*  
+>                    *The Matrix (1999)*  
 
