@@ -6,11 +6,12 @@ cmatrix、[rustmatrix](https://github.com/meganehouser/rustmatrix)のクロー�
 
 cmatrixの文字列のラインでtwitterのタイムラインを表示します。
 
-> "Do you always look at it encoded?"  
-> "Well, You have to."  
-> "The image translators work for the constract program."   
-> "But there's way too much infomation to decode The Matrix."  
-> "You get used to it."  
-> "I don't even see the code."    
-> "All I see is blonde, brunette, redhead."  
+<!-- > "Do you always look at it encoded?"   -->
+<!-- > "Well, You have to."   -->
+<!-- > "The image translators work for the constract program."    -->
+<!-- > "But there's way too much infomation to decode The Matrix."   -->
+<!-- > "You get used to it."   -->
+> _"I don't even see the code."_
+> _"All I see is blonde, brunette, redhead."_
+>                    _The Matrix (1999)_
 
