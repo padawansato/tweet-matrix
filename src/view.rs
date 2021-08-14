@@ -1,13 +1,14 @@
-use cursive::theme::Style;
-use cursive::view::View;
 use cursive::event::{Event, EventResult};
-use cursive::Printer;
+use cursive::theme::Style;
 use cursive::theme::{Color, ColorStyle, Effect};
 use cursive::vec::Vec2;
+use cursive::view::View;
+use cursive::Printer;
 use rand::prelude::*;
 use std::collections::VecDeque;
 
-const CHARS: &str = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890-=*_+|:<>";
+// const CHARS: &str = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890-=*_+|:<>";
+const CHARS: &str = "User @TakumiS27623041's timeline<@UN_NERV> 【東京都 気象警報 2021年08月15日 02:42】東京地方では、15日夕方まで土砂災害や河川の増水に、15日昼過ぎまで低い土地の浸水に警戒してください。 https://t.co/jT3pQIOd5F<@UN_NERV> 【岐阜県・愛知県 庄内川氾濫注意情報解除 2021年08月15日 02:41】庄内川では、氾濫注意水位を下回る<@UN_NERV> 【山口県 厚東川水系厚東川氾濫注意情報解除 2021年08月15日 02:40】厚東川水系厚東川では、氾濫注意水位を下回る<@UN_NERV> 【岡山県 土砂災害警戒情報 2021年08月15日 02:40】岡山県の警戒対象地域では土砂災害の危険度が高まっています。身の安全を確保するよう努めてください。 https://t.co/EzuXvbxXwE<@UN_NERV> 【広島県三原市 避難指示・高齢者等避難】広島県三原市の4,030世帯8,647人に避難指示、43,556世帯91,317人に高齢者等避難が発令されています。 https://t.co/9HpBnZxt91<@UN_NERV> 【広島県福山市 避難指示・高齢者等避難】広島県福山市の35,897世帯83,480人に避難指示、174,634世帯376,825人に高齢者等避難が発令されています。 https://t.co/i5RqU59Anh<@UN_NERV> 【神奈川県 気象警報 2021年08月15日 02:36】神奈川県では、土砂災害や低い土地の浸水に警戒してください。西部では、河川の増水に警戒してください。東部では、高波に警戒してください。 https://t.co/5R66yTaecd<@UN_NERV> 【静岡県 気象警報 2021年08月15日 02:36】中部、東部、西部では、15日昼前まで土砂災害に警戒してください。 https://t.co/3Zj8YsJ2Nz<@UN_NERV> 【東京都 気象警報 2021年08月15日 02:36】東京地方では、15日夕方まで土砂災害や河川の増水に、15日昼過ぎまで低い土地の浸水に警戒してください。 https://t.co/vUxTibSZr2<@UN_NERV> 【福岡県 矢部川氾濫注意情報解除 2021年08月15日 02:30】矢部川では、氾濫注意水位を下回る";
 const BLANK: char = ' ';
 const COLOR_WHITE: u8 = 15;
 const COLOR_GREEN: u8 = 2;
@@ -21,11 +22,15 @@ struct Cell {
 
 impl Cell {
     fn new(char: char, bold: bool, white: bool) -> Cell {
-        Cell {char, bold, white}
+        Cell { char, bold, white }
     }
 
     fn blank() -> Cell {
-        Cell {char: BLANK, bold: false, white: false}
+        Cell {
+            char: BLANK,
+            bold: false,
+            white: false,
+        }
     }
 }
 
@@ -46,7 +51,7 @@ impl From<&Cell> for Style {
 
 enum NodeType {
     Eraser,
-    Writer{ white: bool },
+    Writer { white: bool },
 }
 
 struct InnerNode {
@@ -56,28 +61,26 @@ struct InnerNode {
 
 impl InnerNode {
     fn new(node_type: NodeType, rand: ThreadRng) -> InnerNode {
-        InnerNode {node_type, rand}
+        InnerNode { node_type, rand }
     }
 
     fn create_cell(&mut self) -> Cell {
         match self.node_type {
-            NodeType::Writer{white: w} => {
+            NodeType::Writer { white: w } => {
                 let bold = self.rand.gen();
                 let char = self.choice_char();
                 Cell::new(char, bold, w.to_owned())
-            },
-            NodeType::Eraser => {
-                Cell::blank()
-            },
+            }
+            NodeType::Eraser => Cell::blank(),
         }
     }
 
     fn choice_char(&mut self) -> char {
         match self.node_type {
-            NodeType::Writer {white: _} => {
+            NodeType::Writer { white: _ } => {
                 let chars: Vec<char> = String::from(CHARS).chars().collect();
                 chars.choose(&mut self.rand).unwrap().to_owned()
-            },
+            }
             NodeType::Eraser => BLANK,
         }
     }
@@ -93,7 +96,7 @@ impl Node {
         let y = 0;
         let rand = thread_rng();
         let inner_node = InnerNode::new(node_type, rand);
-        Node {y, inner_node}
+        Node { y, inner_node }
     }
 
     fn update(&mut self) {
@@ -184,9 +187,9 @@ pub struct GreenCodeView {
 impl GreenCodeView {
     pub fn new(speed: u32, size: Vec2) -> GreenCodeView {
         let column_count = size.x / 2;
-        let columns = (0..column_count).map(|_x| {
-            Column::new(size.y, thread_rng())
-        }).collect();
+        let columns = (0..column_count)
+            .map(|_x| Column::new(size.y, thread_rng()))
+            .collect();
 
         GreenCodeView {
             columns,
@@ -216,12 +219,10 @@ impl View for GreenCodeView {
         for (x, column) in self.columns.iter().enumerate() {
             for (y, cell) in column.data.iter().enumerate() {
                 let style = Style::from(cell);
-                printer.with_style(
-                    style,
-                    |p| {
-                        let s = cell.char.to_owned().to_string();
-                        p.print((x * 2, y), &s);
-                    });
+                printer.with_style(style, |p| {
+                    let s = cell.char.to_owned().to_string();
+                    p.print((x * 2, y), &s);
+                });
             }
         }
     }
