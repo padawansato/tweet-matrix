@@ -1,9 +1,0 @@
-/Users/padawan_e15/ghq/github.com/meganehouser/rustmatrix/target/rls/debug/deps/unicode_segmentation-047028054b20f562.rmeta: /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/lib.rs /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/grapheme.rs /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/tables.rs /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/word.rs /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/sentence.rs
-
-/Users/padawan_e15/ghq/github.com/meganehouser/rustmatrix/target/rls/debug/deps/unicode_segmentation-047028054b20f562.d: /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/lib.rs /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/grapheme.rs /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/tables.rs /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/word.rs /Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/sentence.rs
-
-/Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/lib.rs:
-/Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/grapheme.rs:
-/Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/tables.rs:
-/Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/word.rs:
-/Users/padawan_e15/.cargo/registry/src/github.com-1ecc6299db9ec823/unicode-segmentation-1.3.0/src/sentence.rs:
