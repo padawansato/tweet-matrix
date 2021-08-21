@@ -1,3 +1,4 @@
 /target
 **/*.rs.bk
 .env
+/Users/padawan_e15/.config/git/Rust.gitignore
