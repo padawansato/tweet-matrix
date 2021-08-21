@@ -1,1 +1,0 @@
-/Users/padawan_e15/ghq/github.com/psato/tweet-matrix/target/debug/tweet-mateix: /Users/padawan_e15/ghq/github.com/psato/tweet-matrix/src/main.rs /Users/padawan_e15/ghq/github.com/psato/tweet-matrix/src/view.rs
