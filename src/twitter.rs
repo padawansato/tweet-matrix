@@ -7,7 +7,6 @@ pub struct Timeline {
     pub count: i32,
     pub max_id: Option<u64>,
     pub min_id: Option<u64>,
-    pub context: Option<String>,
 }
 
 #[tokio::main]
